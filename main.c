@@ -1,49 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 5 //숫자가 무엇을 의미하는지 알려줄 수 있음, 숫자 바꿀 때도 용이  
+#define SIZE 4 //숫자가 무엇을 의미하는지 알려줄 수 있음, 숫자 바꿀 때도 용이 
+ 
+void square_array(int a[],int size);
+void print_array(int a[],int size);
+  
 
 int main(int argc, char *argv[])
 {
+  //실습 4
+  int list[SIZE]={1,2,3,4};
   
-  //실습 3
-  
-  //SIZE 크기 배열 선언  
-  int i;
-  int a[SIZE]={1,2,3,4,5,};
-  int b[SIZE]={1,2,3,4,5,};
-  int flag_same=1;
-  
-  for(i=0; i<SIZE; i++)
-  {
-    if(a[i] != b[i])
-    { 
-      printf("%i-the element is diff.\n",i);
-      flag_same=0;
-    }
-  }
-  
-  printf("Are a and b the same? %i\n", flag_same);     
-  
+  print_array(list,SIZE);
+  square_array(list,SIZE);
+  print_array(list,SIZE);
+    
   system("PAUSE");	
   return 0;
 }
 
-/*int i;
-  int grade[SIZE];
-  int score[SIZE]; 
+void square_array(int a[],int size)
+{
+  int i;
   
-  //점수 입력 
-  for(i=0; i<SIZE; i++)
-  {
-    grade[i]=rand() % 100; //0~99까지의 값만 나옴  
-  }
+  for(i=0; i<size; i++)
+   a[i]=a[i]*a[i];
+}
+
+void print_array(int a[],int size)
+{
+  int i;
   
-  for(i=0; i<SIZE; i++)
-   score[i]=grade[i]; 
-    
-  //점수 화면 출력(반복문 활용) 
-  #if 1 
-  for(i=0; i<SIZE; i++)
-   printf("grade[%i]=%i, score[%i] = %i\n",i,score[i]);
-  #endif
-  */
+  for(i=0; i<size; i++)
+   printf("%3d",a[i]);
+  printf("\n");
+}
